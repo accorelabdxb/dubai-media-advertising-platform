@@ -3,9 +3,21 @@
 
 A comprehensive advertising platform landing page for Dubai Media with full English/Arabic localization support. This platform allows users to book advertising slots across TV, Radio, Print, and Social Media channels.
 
+## 🚀 Deploy to Vercel Now!
+
+**Ready to deploy?** Click the button below for instant deployment:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/accorelabdxb/dubai-media-advertising-platform)
+
+> ⚡ Takes 2 minutes | ✅ Zero configuration needed | 🌐 Get a live URL instantly
+
+📖 **Need help?** See [DEPLOY_NOW.md](./DEPLOY_NOW.md) for step-by-step instructions.
+
+---
+
 ## 🌐 Access the Application
 
-> **Want a URL to access this app?** 👉 See [QUICK_START.md](./QUICK_START.md) for the fastest way to get a live URL!
+> **Want a URL to access this app?** 👉 See [DEPLOY_NOW.md](./DEPLOY_NOW.md) for the fastest way to get a live URL!
 
 ### Deploy to Get a Public URL (2 minutes)
 
@@ -141,13 +153,22 @@ To add a new language:
 
 ## Deployment
 
-This application is ready to be deployed to Vercel! See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for detailed Vercel deployment instructions.
+### 🚀 Deploy to Vercel Now
 
-For other deployment platforms, see [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment instructions.
+**One-Click Deploy:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/accorelabdxb/dubai-media-advertising-platform)
 
-### Quick Deploy
+This project is **100% ready** for Vercel deployment! All configurations are in place.
 
-**Vercel (Fastest):**
+### 📚 Deployment Guides
+
+- **[DEPLOY_NOW.md](./DEPLOY_NOW.md)** - Quick start guide with deploy button
+- **[DEPLOYMENT_SETUP.md](./DEPLOYMENT_SETUP.md)** - Complete setup including automated deployments
+- **[VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)** - Detailed Vercel-specific guide
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - All deployment platforms
+
+### Quick CLI Deploy
+
+**Vercel:**
 ```bash
 npm install -g vercel
 vercel
