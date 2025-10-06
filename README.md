@@ -141,7 +141,9 @@ To add a new language:
 
 ## Deployment
 
-This application is ready to be deployed to any static hosting platform. See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment instructions.
+This application is ready to be deployed to Vercel! See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for detailed Vercel deployment instructions.
+
+For other deployment platforms, see [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment instructions.
 
 ### Quick Deploy
 
