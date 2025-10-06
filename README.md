@@ -3,6 +3,30 @@
 
 A comprehensive advertising platform landing page for Dubai Media with full English/Arabic localization support. This platform allows users to book advertising slots across TV, Radio, Print, and Social Media channels.
 
+## 🌐 Access the Application
+
+> **Want a URL to access this app?** 👉 See [QUICK_START.md](./QUICK_START.md) for the fastest way to get a live URL!
+
+### Deploy to Get a Public URL (2 minutes)
+
+Click a button below to deploy instantly and get your own URL:
+
+- **Vercel** (Recommended): [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/accorelabdxb/dubai-media-advertising-platform)
+- **Netlify**: [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/accorelabdxb/dubai-media-advertising-platform)
+
+After deployment, you'll get a URL like:
+- Vercel: `https://your-project-name.vercel.app`
+- Netlify: `https://your-site-name.netlify.app`
+
+### Local Development
+
+For local development, access at: `http://localhost:3000` (see [Getting Started](#getting-started) section below)
+
+### More Options
+
+📖 **Detailed deployment instructions:** [DEPLOYMENT.md](./DEPLOYMENT.md)  
+🚀 **Quick start guide:** [QUICK_START.md](./QUICK_START.md)
+
 ## Features
 
 ### 🌐 Multi-Language Support
@@ -114,6 +138,33 @@ To add a new language:
 1. Add language code to `Language` type in `LanguageContext.tsx`
 2. Add translations to the `translations` object
 3. Update language switcher component
+
+## Deployment
+
+This application is ready to be deployed to any static hosting platform. See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment instructions.
+
+### Quick Deploy
+
+**Vercel (Fastest):**
+```bash
+npm install -g vercel
+vercel
+```
+
+**Netlify:**
+```bash
+npm install -g netlify-cli
+npm run build
+netlify deploy --prod
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The production-ready files will be in the `build` directory.
 
 ## Contributing
 
