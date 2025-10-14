@@ -6,7 +6,7 @@ import { useState } from "react";
 import tvImage from "../images/tv.svg";
 import radioImage from "../images/radio.svg";
 import printingImage from "../images/printing.svg";
-import socialmediaImage from "../images/socialmedia.svg";
+import socialmediaImage from "../images/awaan.png";
 import xFactorImage from "../images/DTV/X-factor/XF-logo-season2.png";
 import wwtbmImage from "../images/DTV/WWTBM/WWTBM.png";
 import theDoctorsImage from "../images/DTV/The Doctors/TheDoctors.png";

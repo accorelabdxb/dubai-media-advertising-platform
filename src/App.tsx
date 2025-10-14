@@ -11,16 +11,31 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { SignupPage } from "./components/SignupPage";
 import { DashboardLayout } from "./components/dashboard/DashboardLayout";
+import { SignInModal } from "./components/SignInModal";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
 type Page = 'home' | 'signup' | 'dashboard';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
 
   const navigateToSignup = () => setCurrentPage('signup');
   const navigateToHome = () => setCurrentPage('home');
   const navigateToDashboard = () => setCurrentPage('dashboard');
+  
+  const openSignInModal = () => setIsSignInModalOpen(true);
+  const closeSignInModal = () => setIsSignInModalOpen(false);
+  
+  const handleSignIn = () => {
+    closeSignInModal();
+    navigateToDashboard();
+  };
+  
+  const handleSignUp = () => {
+    closeSignInModal();
+    navigateToSignup();
+  };
 
   // Handle URL-based navigation on initial load
   if (typeof window !== 'undefined' && window.location.pathname === '/dashboard' && currentPage === 'home') {
@@ -38,7 +53,11 @@ export default function App() {
           <>
             <Navbar onGetStarted={navigateToSignup} />
             <div id="hero">
-              <Hero onBookSlot={navigateToDashboard} />
+              <Hero 
+                onOpenDashboard={navigateToDashboard}
+                onOpenSignup={navigateToSignup}
+                onOpenSignInModal={openSignInModal}
+              />
             </div>
             <div id="platforms">
               <PlatformSelection />
@@ -52,9 +71,9 @@ export default function App() {
             <div id="analytics">
               <Analytics />
             </div>
-            <div id="testimonials">
+            {/* <div id="testimonials">
               <Testimonials />
-            </div>
+            </div> */}
             <div id="pricing">
               <CTA />
             </div>
@@ -64,6 +83,14 @@ export default function App() {
             <Footer />
           </>
         )}
+        
+        {/* Global Sign In Modal */}
+        <SignInModal
+          isOpen={isSignInModalOpen}
+          onClose={closeSignInModal}
+          onSignIn={handleSignIn}
+          onSignUp={handleSignUp}
+        />
       </div>
     </LanguageProvider>
   );

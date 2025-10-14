@@ -50,7 +50,7 @@ export function BusinessDetails({ data, onUpdate }: BusinessDetailsProps) {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor="companyName">{t('signup.businessDetails.companyName')} *</Label>
+        <Label htmlFor="companyName">{t('signup.businessDetails.companyName')} </Label>
         <Input
           id="companyName"
           value={data.companyName}
@@ -61,7 +61,7 @@ export function BusinessDetails({ data, onUpdate }: BusinessDetailsProps) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="tradeLicenseNumber">{t('signup.businessDetails.tradeLicenseNumber')} *</Label>
+        <Label htmlFor="tradeLicenseNumber">{t('signup.businessDetails.tradeLicenseNumber')} </Label>
         <Input
           id="tradeLicenseNumber"
           value={data.tradeLicenseNumber}
@@ -72,7 +72,7 @@ export function BusinessDetails({ data, onUpdate }: BusinessDetailsProps) {
       </div>
 
       <div className="space-y-2">
-        <Label>{t('signup.businessDetails.uploadTradeLicense')} *</Label>
+        <Label>{t('signup.businessDetails.uploadTradeLicense')} </Label>
         <Card className="border-dashed border-2 border-gray-300 hover:border-gray-400 transition-colors">
           <CardContent className="p-6">
             {data.tradeLicenseFile ? (
@@ -128,21 +128,54 @@ export function BusinessDetails({ data, onUpdate }: BusinessDetailsProps) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="emiratesId">{t('signup.businessDetails.emiratesId')} *</Label>
-        <Input
-          id="emiratesId"
-          value={data.emiratesId}
-          onChange={(e) => onUpdate({ emiratesId: e.target.value })}
-          placeholder={t('signup.businessDetails.emiratesIdPlaceholder')}
+        <Label htmlFor="idType">{t('signup.businessDetails.idType')} </Label>
+        <select
+          id="idType"
+          value={data.idType || 'emiratesId'}
+          onChange={(e) => onUpdate({ idType: e.target.value })}
+          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           required
-        />
+        >
+          <option value="emiratesId">{t('signup.businessDetails.emiratesIdOption')}</option>
+          <option value="passport">{t('signup.businessDetails.passportOption')}</option>
+          <option value="visa">{t('signup.businessDetails.visaOption')}</option>
+        </select>
         <p className="text-xs text-gray-500">
-          {t('signup.businessDetails.emiratesIdNote')}
+          {t('signup.businessDetails.idTypeNote')}
         </p>
       </div>
 
       <div className="space-y-2">
-        <Label>{t('signup.businessDetails.uploadIdCopy')} *</Label>
+        <Label htmlFor="idNumber">
+          {data.idType === 'passport' 
+            ? t('signup.businessDetails.passportNumber') 
+            : data.idType === 'visa'
+            ? t('signup.businessDetails.visaNumber')
+            : t('signup.businessDetails.emiratesId')} 
+        </Label>
+        <Input
+          id="idNumber"
+          value={data.emiratesId}
+          onChange={(e) => onUpdate({ emiratesId: e.target.value })}
+          placeholder={
+            data.idType === 'passport'
+              ? t('signup.businessDetails.passportNumberPlaceholder')
+              : data.idType === 'visa'
+              ? t('signup.businessDetails.visaNumberPlaceholder')
+              : t('signup.businessDetails.emiratesIdPlaceholder')
+          }
+          required
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label>
+          {data.idType === 'passport'
+            ? t('signup.businessDetails.uploadPassport')
+            : data.idType === 'visa'
+            ? t('signup.businessDetails.uploadVisa')
+            : t('signup.businessDetails.uploadIdCopy')} 
+        </Label>
         <Card className="border-dashed border-2 border-gray-300 hover:border-gray-400 transition-colors">
           <CardContent className="p-6">
             {data.idFiles.length > 0 && (

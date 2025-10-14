@@ -177,7 +177,7 @@ export function ApprovalWorkflow({ data, onUpdate, onNext, onBack }: ApprovalWor
   }, [currentStage]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
@@ -247,7 +247,7 @@ export function ApprovalWorkflow({ data, onUpdate, onNext, onBack }: ApprovalWor
                               ? 'border-green-500 bg-green-50'
                               : stage.status === 'in-progress'
                               ? 'border-blue-500 bg-blue-50'
-                              : 'border-gray-300 bg-gray-50'
+                              : 'border-gray-300 bg-blue-50'
                           }`}>
                             <Icon className={`h-5 w-5 ${
                               stage.status === 'completed' 

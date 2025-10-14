@@ -84,7 +84,7 @@ export function BookingSuccess({ data, onBookAnother, onViewBookings }: BookingS
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Success Header */}
       <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-12">
         <div className="max-w-4xl mx-auto text-center">

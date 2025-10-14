@@ -216,7 +216,7 @@ export function AdMaterialUpload({ data, onUpdate, onNext, onBack }: AdMaterialU
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
@@ -482,7 +482,7 @@ export function AdMaterialUpload({ data, onUpdate, onNext, onBack }: AdMaterialU
                   </div>
 
                   {/* Preview */}
-                  <div className="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                  <div className="mt-6 p-4 bg-blue-50 border border-gray-200 rounded-lg">
                     <div className="flex items-center gap-3 mb-3">
                       <Play className="h-5 w-5 text-primary" />
                       <h4 className="font-medium">{t('adMaterial.templatePreview')}</h4>

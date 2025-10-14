@@ -90,7 +90,7 @@ export function Payment({ data, onUpdate, onNext, onBack }: PaymentProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
@@ -125,7 +125,7 @@ export function Payment({ data, onUpdate, onNext, onBack }: PaymentProps) {
                   onValueChange={(value) => setPaymentMethod(value as any)}
                   className="space-y-4"
                 >
-                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-gray-50">
+                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-blue-50">
                     <RadioGroupItem value="card" id="card" />
                     <label htmlFor="card" className="flex items-center gap-3 cursor-pointer flex-1">
                       <CreditCard className="h-5 w-5 text-blue-600" />
@@ -137,7 +137,7 @@ export function Payment({ data, onUpdate, onNext, onBack }: PaymentProps) {
                     <Badge variant="secondary">{t('payment.instant')}</Badge>
                   </div>
 
-                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-gray-50">
+                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-blue-50">
                     <RadioGroupItem value="bank" id="bank" />
                     <label htmlFor="bank" className="flex items-center gap-3 cursor-pointer flex-1">
                       <Building className="h-5 w-5 text-green-600" />
@@ -149,7 +149,7 @@ export function Payment({ data, onUpdate, onNext, onBack }: PaymentProps) {
                     <Badge variant="outline">{t('payment.days1to2')}</Badge>
                   </div>
 
-                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-gray-50">
+                  <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-blue-50">
                     <RadioGroupItem value="wallet" id="wallet" />
                     <label htmlFor="wallet" className="flex items-center gap-3 cursor-pointer flex-1">
                       <Wallet className="h-5 w-5 text-purple-600" />
@@ -268,7 +268,7 @@ export function Payment({ data, onUpdate, onNext, onBack }: PaymentProps) {
                       type="text"
                       value={data.bookingId || ''}
                       disabled
-                      className="bg-gray-50"
+                      className="bg-blue-50"
                     />
                     <p className="text-xs text-gray-500">
                       Please include this reference number with your transfer

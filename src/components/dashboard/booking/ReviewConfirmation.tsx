@@ -129,7 +129,7 @@ export function ReviewConfirmation({ data, onUpdate, onNext, onBack }: ReviewCon
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
@@ -264,7 +264,7 @@ export function ReviewConfirmation({ data, onUpdate, onNext, onBack }: ReviewCon
                   <FileText className="h-4 w-4" />
                   {t('review.adMaterial')}
                 </h4>
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="p-4 bg-blue-50 rounded-lg">
                   {data.adMaterial?.type === 'upload' ? (
                     <div className="flex items-center gap-3">
                       <div className="p-2 bg-blue-100 rounded">
@@ -363,7 +363,7 @@ export function ReviewConfirmation({ data, onUpdate, onNext, onBack }: ReviewCon
                 </div>
               </div>
 
-              <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded">
+              <div className="text-xs text-gray-500 bg-blue-50 p-3 rounded">
                 <p className="font-medium mb-1">{t('review.keyTerms')}</p>
                 <ul className="space-y-1">
                   <li>{t('review.bookingApproval')}</li>

@@ -30,6 +30,7 @@ export interface SignupData {
   companyName: string;
   tradeLicenseNumber: string;
   tradeLicenseFile: File | null;
+  idType: string;
   emiratesId: string;
   idFiles: File[];
   
@@ -44,6 +45,10 @@ export interface SignupData {
   country: string;
   poBox: string;
   landline: string;
+  facebook?: string;
+  twitter?: string;
+  tiktok?: string;
+  instagram?: string;
   
   // Payment Preferences
   paymentMethod: string;
@@ -80,6 +85,7 @@ export function SignupWizard({ isOpen, onClose }: SignupWizardProps) {
     companyName: "",
     tradeLicenseNumber: "",
     tradeLicenseFile: null,
+    idType: "emiratesId",
     emiratesId: "",
     idFiles: [],
     accountType: "",
@@ -90,6 +96,10 @@ export function SignupWizard({ isOpen, onClose }: SignupWizardProps) {
     country: "UAE",
     poBox: "",
     landline: "",
+    facebook: "",
+    twitter: "",
+    tiktok: "",
+    instagram: "",
     paymentMethod: "",
     billingContact: "",
     vatNumber: "",

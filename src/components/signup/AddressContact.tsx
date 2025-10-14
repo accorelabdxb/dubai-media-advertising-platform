@@ -226,7 +226,63 @@ export function AddressContact({ data, onUpdate }: AddressContactProps) {
         </div>
       </div>
 
-      <div className="bg-gray-50 rounded-lg p-4">
+      <div className="border-t pt-6">
+        <div className="flex items-center gap-2 mb-4">
+          <Building className="h-5 w-5 text-primary" />
+          <h3 className="text-lg font-medium">{t('signup.addressContact.socialMediaLinks')}</h3>
+        </div>
+        <p className="text-sm text-gray-600 mb-4">
+          {t('signup.addressContact.socialMediaNote')}
+        </p>
+
+        <div className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="facebook">{t('signup.addressContact.facebook')}</Label>
+            <Input
+              id="facebook"
+              type="url"
+              value={data.facebook || ''}
+              onChange={(e) => onUpdate({ facebook: e.target.value })}
+              placeholder={t('signup.addressContact.facebookPlaceholder')}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="twitter">{t('signup.addressContact.twitter')}</Label>
+            <Input
+              id="twitter"
+              type="url"
+              value={data.twitter || ''}
+              onChange={(e) => onUpdate({ twitter: e.target.value })}
+              placeholder={t('signup.addressContact.twitterPlaceholder')}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="tiktok">{t('signup.addressContact.tiktok')}</Label>
+            <Input
+              id="tiktok"
+              type="url"
+              value={data.tiktok || ''}
+              onChange={(e) => onUpdate({ tiktok: e.target.value })}
+              placeholder={t('signup.addressContact.tiktokPlaceholder')}
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="instagram">{t('signup.addressContact.instagram')}</Label>
+            <Input
+              id="instagram"
+              type="url"
+              value={data.instagram || ''}
+              onChange={(e) => onUpdate({ instagram: e.target.value })}
+              placeholder={t('signup.addressContact.instagramPlaceholder')}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-gray-50 rounded-lg p-4 mt-4">
         <div className="flex items-start gap-3">
           <MapPin className="h-5 w-5 text-blue-600 mt-0.5" />
           <div>

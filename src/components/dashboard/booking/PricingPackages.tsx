@@ -166,7 +166,7 @@ export function PricingPackages({ data, onUpdate, onNext, onBack }: PricingPacka
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
@@ -196,7 +196,7 @@ export function PricingPackages({ data, onUpdate, onNext, onBack }: PricingPacka
                 <CardTitle>{t('pricing.basePricing')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                <div className="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
                   <div>
                     <h4 className="font-medium">{data.program?.name}</h4>
                     <p className="text-sm text-gray-600">

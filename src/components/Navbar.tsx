@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Tv, Menu, X } from "lucide-react";
-import logoSvg from "../images/logo.svg";
+import logoSvg from "../images/logo-white.svg";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const getNavigation = (t: (key: string) => string) => [
@@ -42,7 +42,7 @@ export function Navbar({ onGetStarted }: NavbarProps) {
         <div className={`flex items-center justify-between h-16 ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logoSvg} alt="Logo" className="h-16 w-16" />
+            <img src={logoSvg} alt="Logo" style={{ height: '20px' }}/>
           </div>
 
           {/* Desktop Navigation */}
@@ -68,11 +68,9 @@ export function Navbar({ onGetStarted }: NavbarProps) {
             >
               {language === 'ar' ? 'EN' : 'العربية'}
             </Button>
-            <Button variant="ghost" className="text-white hover:text-black hover:bg-white">
-              {t('nav.signIn')}
-            </Button>
+           
             <Button onClick={onGetStarted} className="bg-white text-black hover:bg-gray-200">
-              {t('nav.getStarted')}
+              تسجيل الدخول
             </Button>
           </div>
 

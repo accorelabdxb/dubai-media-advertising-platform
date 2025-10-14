@@ -192,6 +192,12 @@ export function Analytics() {
                     <span>10%</span>
                   </div>
                   <Progress value={10} className="h-2" />
+
+                  <div className="flex justify-between">
+                    <span>{t('analytics.location.other')}</span>
+                    <span>10%</span>
+                  </div>
+                  <Progress value={10} className="h-2" />
                 </div>
               </div>
             </div>

@@ -27,6 +27,7 @@ export interface SignupData {
   companyName: string;
   tradeLicenseNumber: string;
   tradeLicenseFile: File | null;
+  idType: string;
   emiratesId: string;
   idFiles: File[];
   
@@ -41,6 +42,10 @@ export interface SignupData {
   country: string;
   poBox: string;
   landline: string;
+  facebook?: string;
+  twitter?: string;
+  tiktok?: string;
+  instagram?: string;
   
   // Payment Preferences
   paymentMethod: string;
@@ -76,6 +81,7 @@ export function SignupPage({ onBack }: SignupPageProps) {
     companyName: "",
     tradeLicenseNumber: "",
     tradeLicenseFile: null,
+    idType: "emiratesId",
     emiratesId: "",
     idFiles: [],
     accountType: "",
@@ -86,6 +92,10 @@ export function SignupPage({ onBack }: SignupPageProps) {
     country: "UAE",
     poBox: "",
     landline: "",
+    facebook: "",
+    twitter: "",
+    tiktok: "",
+    instagram: "",
     paymentMethod: "",
     billingContact: "",
     vatNumber: "",

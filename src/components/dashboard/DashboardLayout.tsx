@@ -21,6 +21,7 @@ import { ReviewConfirmation } from "./booking/ReviewConfirmation";
 import { Payment } from "./booking/Payment";
 import { ApprovalWorkflow } from "./booking/ApprovalWorkflow";
 import { BookingSuccess } from "./booking/BookingSuccess";
+import logo from "../../images/logo.svg";
 
 export interface BookingData {
   mediaOutlet?: {
@@ -135,23 +136,20 @@ export function DashboardLayout({ onNavigateHome }: DashboardLayoutProps) {
 
   if (bookingStep) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-blue-50">
         {renderBookingStep()}
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-medium">MI</span>
-              </div>
-              <h1 className="text-xl font-medium">{t('dashboard.mediaIntelligence')}</h1>
+              <img src={logo} alt="Logo" className="h-6 w-10" />
             </div>
           </div>
 
@@ -184,7 +182,7 @@ export function DashboardLayout({ onNavigateHome }: DashboardLayoutProps) {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-gray-200 min-h-[calc(100vh-73px)]">
+        <aside className="w-64 bg-blue-600 text-white border-r border-gray-200 min-h-[calc(100vh-73px)]">
           <nav className="p-4 space-y-2">
             <Button
               variant={currentPage === 'home' ? 'secondary' : 'ghost'}
