@@ -1,6 +1,6 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { Tv, Radio, Newspaper, Smartphone } from "lucide-react";
+import { Tv, Radio, Newspaper, Smartphone, MonitorPlay, MicVocal, Video, Podcast } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useState } from "react";
 import { ChannelSelectionModal } from "./ChannelSelectionModal";
@@ -8,6 +8,10 @@ import tvImage from "../images/tv.svg";
 import radioImage from "../images/radio.svg";
 import printingImage from "../images/printing.svg";
 import socialmediaImage from "../images/awaan.png";
+import tvInterviewImage from "../images/tvinterview.jpg";
+import studioImage from "../images/studio.jpg";
+import mediaCoverageImage from "../images/media-coverage.jpg";
+import socialMediaPlatformImage from "../images/social-media.jpg";
 import xFactorImage from "../images/DTV/X-Factor/XF-logo-season2.png";
 import wwtbmImage from "../images/DTV/WWTBM/WWTBM.png";
 import theDoctorsImage from "../images/DTV/The Doctors/TheDoctors.png";
@@ -200,6 +204,38 @@ export function PlatformSelection({ onOpenChannelModal, onOpenSignInModal }: Pla
       image: "https://images.unsplash.com/photo-1756698706083-565cf6668180?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMG1hcmtldGluZyUyMG1vYmlsZSUyMHBob25lfGVufDF8fHx8MTc1ODYyMjMzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       socialIcon: socialmediaImage,
       color: "bg-purple-500"
+    },
+    {
+      id: "tv-hosting",
+      title: "الاستضافة التلفزيونية",
+      // description: "خدمات الاستضافة التلفزيونية الاحترافية",
+      icon: MonitorPlay,
+      image: tvInterviewImage,
+      color: "bg-indigo-500"
+    },
+    {
+      id: "studio-booking",
+      title: "حجز استوديوهات",
+      // description: "احجز استوديوهات احترافية للإنتاج",
+      icon: MicVocal,
+      image: studioImage,
+      color: "bg-teal-500"
+    },
+    {
+      id: "media-coverage",
+      title: "التغطية الإعلامية",
+      // description: "تغطية إعلامية شاملة لفعالياتك",
+      icon: Video,
+      image: mediaCoverageImage,
+      color: "bg-rose-500"
+    },
+    {
+      id: "social-media",
+      title: "وسائط التواصل الاجتماعي",
+      // description: "إدارة وتسويق عبر وسائل التواصل",
+      icon: Podcast,
+      image: socialMediaPlatformImage,
+      color: "bg-pink-500"
     }
   ];
   return (
@@ -212,7 +248,7 @@ export function PlatformSelection({ onOpenChannelModal, onOpenSignInModal }: Pla
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {platforms.map((platform) => {
             const IconComponent = platform.icon;
             return (
