@@ -36,7 +36,7 @@ export function HowItWorks() {
     }
   ];
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="mb-4 font-bold text-4xl">{t('howItWorks.title')}</h2>

@@ -3,63 +3,36 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import heroImage from "../images/hero.jpeg";
 import { useLanguage } from "../contexts/LanguageContext";
 
-// Import logos from different categories
-import xFactorLogo from "../images/DTV/X-Factor/XF-logo-season2.png";
-import wwtbmLogo from "../images/DTV/WWTBM/WWTBM.png";
-import theDoctorsLogo from "../images/DTV/The Doctors/TheDoctors.png";
-import sharkTankLogo from "../images/DTV/Shark Tank 3/Shark Tank 3.png";
-import akherKalamLogo from "../images/DTV_Ramadan/Akher_Kalam/Akher_Kalam.png";
-import duroobLogo from "../images/DTV_Ramadan/Duroob/Duroob.png";
-import dwcLogo from "../images/Racing/DWC/DWCLogo.png";
-import racingAlEmaratLogo from "../images/Racing/Racing Al Emarat/Racing Al Emarat Logo.png";
-import racingJebelAliLogo from "../images/Racing/Racing Jebel Ali/Racing Jebel Ali.png";
-import racingMeydanLogo from "../images/Racing/Racing Meydan/Racing Meydan.png";
-import natureAliLogo from "../images/Sama/Nature with Ali bin Thaleth/Nature with Ali bin Thaleth.png";
-import masaaDubaiLogo from "../images/Sama/Masaa Dubai/Masaa-Dubai-color.png";
-import kunoozAlDarLogo from "../images/Sama/Kunooz Al Dar 3/Kunooz Al Dar 3.png";
-import alHaiAlThaqafiLogo from "../images/Sama/Al Hai Al Thaqafi/Al-Hai-Al-Thaqafi.png";
-import alMandoosLogo from "../images/Sama Ramadan/Al Mandoos/mandoos-logo-white.png";
-import souqAlQadeemLogo from "../images/Sama Ramadan/souq-al-Qadeem/souq-al-Qadeem.png";
-import alMalabLogo from "../images/Sports/Al Malab Logo/Al Malab Logo.png";
-import alSalatLogo from "../images/Sports/Al Salat Logo/Al Salat Logo.png";
-import jamaheerLogo from "../images/Sports/Jamaheer/Jamaheer Logo.png";
-import stadAlDawriLogo from "../images/Sports/Stad Al Dawri/Stad Al Dawri.png";
+// Import logos
+import mobile1 from "../images/mobile1.svg";
+import newspaper1 from "../images/newspaper1.svg";
+import radio1 from "../images/radio1.svg";
+import tv1 from "../images/tv1.svg";
 
 interface HeroProps {
   onOpenSignInModal?: () => void;
+  onOpenChannelModal?: (type: 'tv' | 'radio' | 'print' | 'mobile') => void;
 }
 
-export function Hero({ onOpenSignInModal }: HeroProps) {
+export function Hero({ onOpenSignInModal, onOpenChannelModal }: HeroProps) {
   const { t, isRTL } = useLanguage();
 
   const handleBookSlotClick = () => {
     onOpenSignInModal?.();
   };
 
+  const handleLogoClick = (type: 'tv' | 'radio' | 'print' | 'mobile') => {
+    onOpenChannelModal?.(type);
+  };
+
   // Logo carousel data
   const logos = [
-    { src: xFactorLogo, alt: "X-Factor", category: "DTV" },
-    { src: wwtbmLogo, alt: "WWTBM", category: "DTV" },
-    { src: theDoctorsLogo, alt: "The Doctors", category: "DTV" },
-    { src: sharkTankLogo, alt: "Shark Tank", category: "DTV" },
-    { src: akherKalamLogo, alt: "Akher Kalam", category: "DTV Ramadan" },
-    { src: duroobLogo, alt: "Duroob", category: "DTV Ramadan" },
-    { src: dwcLogo, alt: "DWC", category: "Racing" },
-    { src: racingAlEmaratLogo, alt: "Racing Al Emarat", category: "Racing" },
-    { src: racingJebelAliLogo, alt: "Racing Jebel Ali", category: "Racing" },
-    { src: racingMeydanLogo, alt: "Racing Meydan", category: "Racing" },
-    { src: natureAliLogo, alt: "Nature with Ali", category: "Sama" },
-    { src: masaaDubaiLogo, alt: "Masaa Dubai", category: "Sama" },
-    { src: kunoozAlDarLogo, alt: "Kunooz Al Dar", category: "Sama" },
-    { src: alHaiAlThaqafiLogo, alt: "Al Hai Al Thaqafi", category: "Sama" },
-    { src: alMandoosLogo, alt: "Al Mandoos", category: "Sama Ramadan" },
-    { src: souqAlQadeemLogo, alt: "Souq Al Qadeem", category: "Sama Ramadan" },
-    { src: alMalabLogo, alt: "Al Malab", category: "Sports" },
-    { src: alSalatLogo, alt: "Al Salat", category: "Sports" },
-    { src: jamaheerLogo, alt: "Jamaheer", category: "Sports" },
-    { src: stadAlDawriLogo, alt: "Stad Al Dawri", category: "Sports" },
+    { src: mobile1, alt: "Mobile", category: "Platform", type: 'mobile' as const },
+    { src: newspaper1, alt: "Newspaper", category: "Platform", type: 'print' as const },
+    { src: radio1, alt: "Radio", category: "Platform", type: 'radio' as const },
+    { src: tv1, alt: "TV", category: "Platform", type: 'tv' as const },
   ];
-  
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 z-0">
       {/* Background Image */}
@@ -91,7 +64,7 @@ export function Hero({ onOpenSignInModal }: HeroProps) {
             {t('hero.bookSlot')}
           </Button>
         </div>
-        
+
         {/* Logo Carousel */}
         <div className="mt-16">
           <div className="logo-carousel-container">
@@ -100,7 +73,7 @@ export function Hero({ onOpenSignInModal }: HeroProps) {
               {logos.map((logo, index) => (
                 <div
                   key={`first-${index}`}
-                  onClick={handleBookSlotClick}
+                  onClick={() => handleLogoClick(logo.type)}
                   className="flex-shrink-0 w-16 h-16 bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer"
                 >
                   <img
@@ -111,11 +84,12 @@ export function Hero({ onOpenSignInModal }: HeroProps) {
                   />
                 </div>
               ))}
-              {/* Second set for seamless loop */}
+
+              {/* second set of logos */}
               {logos.map((logo, index) => (
                 <div
                   key={`second-${index}`}
-                  onClick={handleBookSlotClick}
+                  onClick={() => handleLogoClick(logo.type)}
                   className="flex-shrink-0 w-16 h-16 bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer"
                 >
                   <img
@@ -126,11 +100,12 @@ export function Hero({ onOpenSignInModal }: HeroProps) {
                   />
                 </div>
               ))}
-              {/* Third set to ensure no gaps */}
+
+              {/* third set of logos */}
               {logos.map((logo, index) => (
                 <div
                   key={`third-${index}`}
-                  onClick={handleBookSlotClick}
+                  onClick={() => handleLogoClick(logo.type)}
                   className="flex-shrink-0 w-16 h-16 bg-white/10 rounded-lg p-2 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 group cursor-pointer"
                 >
                   <img
@@ -141,13 +116,12 @@ export function Hero({ onOpenSignInModal }: HeroProps) {
                   />
                 </div>
               ))}
+
+
             </div>
           </div>
         </div>
       </div>
-
-
-
 
       {/* Scroll indicator */}
       {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">

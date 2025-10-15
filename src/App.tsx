@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 import { SignupPage } from "./components/SignupPage";
 import { DashboardLayout } from "./components/dashboard/DashboardLayout";
 import { SignInModal } from "./components/SignInModal";
+import { ChannelSelectionModal } from "./components/ChannelSelectionModal";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
 type Page = 'home' | 'signup' | 'dashboard';
@@ -19,6 +20,8 @@ type Page = 'home' | 'signup' | 'dashboard';
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+  const [isChannelModalOpen, setIsChannelModalOpen] = useState(false);
+  const [selectedChannelType, setSelectedChannelType] = useState<'tv' | 'radio' | 'print' | 'mobile'>('tv');
 
   const navigateToSignup = () => setCurrentPage('signup');
   const navigateToHome = () => setCurrentPage('home');
@@ -26,6 +29,12 @@ export default function App() {
   
   const openSignInModal = () => setIsSignInModalOpen(true);
   const closeSignInModal = () => setIsSignInModalOpen(false);
+  
+  const openChannelModal = (type: 'tv' | 'radio' | 'print' | 'mobile') => {
+    setSelectedChannelType(type);
+    setIsChannelModalOpen(true);
+  };
+  const closeChannelModal = () => setIsChannelModalOpen(false);
   
   const handleSignIn = () => {
     closeSignInModal();
@@ -35,6 +44,11 @@ export default function App() {
   const handleSignUp = () => {
     closeSignInModal();
     navigateToSignup();
+  };
+  
+  const handleChannelSelect = () => {
+    closeChannelModal();
+    openSignInModal();
   };
 
   // Handle URL-based navigation on initial load
@@ -54,9 +68,8 @@ export default function App() {
             <Navbar onGetStarted={navigateToSignup} />
             <div id="hero">
               <Hero 
-                onOpenDashboard={navigateToDashboard}
-                onOpenSignup={navigateToSignup}
                 onOpenSignInModal={openSignInModal}
+                onOpenChannelModal={openChannelModal}
               />
             </div>
             <div id="platforms">
@@ -90,6 +103,14 @@ export default function App() {
           onClose={closeSignInModal}
           onSignIn={handleSignIn}
           onSignUp={handleSignUp}
+        />
+        
+        {/* Global Channel Selection Modal */}
+        <ChannelSelectionModal
+          isOpen={isChannelModalOpen}
+          onClose={closeChannelModal}
+          channelType={selectedChannelType}
+          onChannelSelect={handleChannelSelect}
         />
       </div>
     </LanguageProvider>

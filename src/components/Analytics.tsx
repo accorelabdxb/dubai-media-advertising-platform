@@ -1,14 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Progress } from "./ui/progress";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Cell } from "recharts";
 import { TrendingUp, Eye, Users, Target } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const getPlatformData = (t: (key: string) => string) => [
-  { platform: t('analytics.platform.tv'), reach: 3200000, engagement: 85 },
-  { platform: t('analytics.platform.radio'), reach: 1800000, engagement: 72 },
-  { platform: t('analytics.platform.print'), reach: 950000, engagement: 68 },
-  { platform: t('analytics.platform.social'), reach: 2400000, engagement: 91 }
+  { platform: t('analytics.platform.tv'), reach: 3200000, engagement: 85, color: '#3b82f6' },
+  { platform: t('analytics.platform.radio'), reach: 1800000, engagement: 72, color: '#10b981' },
+  { platform: t('analytics.platform.print'), reach: 950000, engagement: 68, color: '#f97316' },
+  { platform: t('analytics.platform.social'), reach: 2400000, engagement: 91, color: '#a855f7' }
 ];
 
 const getMetrics = (t: (key: string) => string) => [
@@ -46,6 +45,10 @@ export function Analytics() {
   const { t } = useLanguage();
   const data = getPlatformData(t);
   const metrics = getMetrics(t);
+
+  const ageColors = ['#3b82f6', '#10b981', '#f97316', '#a855f7'];
+  const genderColors = ['#ec4899', '#3b82f6'];
+  const locationColors = ['#8b5cf6', '#10b981', '#f59e0b', '#6366f1'];
 
   return (
     <section className="py-16 px-4 bg-white">
@@ -94,7 +97,11 @@ export function Analytics() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="platform" />
                   <YAxis />
-                  <Bar dataKey="reach" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="reach" radius={[4, 4, 0, 0]}>
+                    {data.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </CardContent>
@@ -112,7 +119,12 @@ export function Analytics() {
                     <span className="font-medium">{item.platform}</span>
                     <span className="text-muted-foreground">{item.engagement}%</span>
                   </div>
-                  <Progress value={item.engagement} className="h-3" />
+                  <div className="relative h-3 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div 
+                      className="h-full transition-all" 
+                      style={{ width: `${item.engagement}%`, backgroundColor: item.color }}
+                    />
+                  </div>
                 </div>
               ))}
             </CardContent>
@@ -133,25 +145,33 @@ export function Analytics() {
                     <span>{t('analytics.age.18-24')}</span>
                     <span>22%</span>
                   </div>
-                  <Progress value={22} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '22%', backgroundColor: ageColors[0] }} />
+                  </div>
                   
                   <div className="flex justify-between">
                     <span>{t('analytics.age.25-34')}</span>
                     <span>35%</span>
                   </div>
-                  <Progress value={35} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '35%', backgroundColor: ageColors[1] }} />
+                  </div>
                   
                   <div className="flex justify-between">
                     <span>{t('analytics.age.35-44')}</span>
                     <span>28%</span>
                   </div>
-                  <Progress value={28} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '28%', backgroundColor: ageColors[2] }} />
+                  </div>
                   
                   <div className="flex justify-between">
                     <span>{t('analytics.age.45+')}</span>
                     <span>15%</span>
                   </div>
-                  <Progress value={15} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '15%', backgroundColor: ageColors[3] }} />
+                  </div>
                 </div>
               </div>
 
@@ -162,13 +182,17 @@ export function Analytics() {
                     <span>{t('analytics.gender.female')}</span>
                     <span>52%</span>
                   </div>
-                  <Progress value={52} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '52%', backgroundColor: genderColors[0] }} />
+                  </div>
                   
                   <div className="flex justify-between">
                     <span>{t('analytics.gender.male')}</span>
                     <span>48%</span>
                   </div>
-                  <Progress value={48} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '48%', backgroundColor: genderColors[1] }} />
+                  </div>
                 </div>
               </div>
 
@@ -179,25 +203,33 @@ export function Analytics() {
                     <span>{t('analytics.location.urban')}</span>
                     <span>65%</span>
                   </div>
-                  <Progress value={65} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '65%', backgroundColor: locationColors[0] }} />
+                  </div>
                   
                   <div className="flex justify-between">
                     <span>{t('analytics.location.suburban')}</span>
                     <span>25%</span>
                   </div>
-                  <Progress value={25} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '25%', backgroundColor: locationColors[1] }} />
+                  </div>
                   
                   <div className="flex justify-between">
                     <span>{t('analytics.location.rural')}</span>
                     <span>10%</span>
                   </div>
-                  <Progress value={10} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '10%', backgroundColor: locationColors[2] }} />
+                  </div>
 
                   <div className="flex justify-between">
                     <span>{t('analytics.location.other')}</span>
                     <span>10%</span>
                   </div>
-                  <Progress value={10} className="h-2" />
+                  <div className="relative h-2 w-full overflow-hidden rounded-full bg-gray-200">
+                    <div className="h-full transition-all" style={{ width: '10%', backgroundColor: locationColors[3] }} />
+                  </div>
                 </div>
               </div>
             </div>

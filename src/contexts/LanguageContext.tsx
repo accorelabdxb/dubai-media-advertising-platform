@@ -1687,13 +1687,13 @@ const translations = {
     // Platform Selection
     'platforms.title': 'اختر منصتك',
     'platforms.subtitle': 'اختر منصة الإعلام التي تناسب أهداف حملتك الإعلانية. كل منصة تقدم مزايا فريدة للوصول إلى جمهورك المستهدف.',
-    'platforms.tv.title': 'التلفزيون',
+    'platforms.tv.title': 'القنوات التلفزيوية',
     'platforms.tv.description': 'وصل إلى الملايين من خلال أوقات الذروة والبرامج الشعبية',
-    'platforms.radio.title': 'الراديو',
+    'platforms.radio.title': 'اذاعات',
     'platforms.radio.description': 'تواصل مع المتنقلين والجماهير المحلية',
-    'platforms.print.title': 'الإعلام المطبوع',
+    'platforms.print.title': ' طباعة مسار',
     'platforms.print.description': 'استهدف القراء المهتمين من خلال إعلانات الصحف والمجلات',
-    'platforms.social.title': 'وسائل التواصل الاجتماعي',
+    'platforms.social.title': 'أوان',
     'platforms.social.description': 'تفاعل مع الجيل الرقمي عبر جميع المنصات الرئيسية',
     
     // Dashboard Home specific
