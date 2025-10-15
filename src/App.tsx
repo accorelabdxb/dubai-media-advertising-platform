@@ -73,7 +73,10 @@ export default function App() {
               />
             </div>
             <div id="platforms">
-              <PlatformSelection />
+              <PlatformSelection 
+                onOpenChannelModal={openChannelModal}
+                onOpenSignInModal={openSignInModal}
+              />
             </div>
             <div id="how-it-works">
               <HowItWorks />

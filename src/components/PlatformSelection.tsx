@@ -3,6 +3,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Tv, Radio, Newspaper, Smartphone } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useState } from "react";
+import { ChannelSelectionModal } from "./ChannelSelectionModal";
 import tvImage from "../images/tv.svg";
 import radioImage from "../images/radio.svg";
 import printingImage from "../images/printing.svg";
@@ -28,10 +29,16 @@ import alSalatLogoImage from "../images/Sports/Al Salat Logo/Al Salat Logo.png";
 import jamaheerImage from "../images/Sports/Jamaheer/Jamaheer Logo.png";
 import stadAlDawriImage from "../images/Sports/Stad Al Dawri/Stad Al Dawri.png";
 
+interface PlatformSelectionProps {
+  onOpenChannelModal?: (type: 'tv' | 'radio' | 'print' | 'mobile') => void;
+  onOpenSignInModal?: () => void;
+}
 
-export function PlatformSelection() {
+export function PlatformSelection({ onOpenChannelModal, onOpenSignInModal }: PlatformSelectionProps) {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<keyof typeof channelTabs>('dtv');
+  const [isChannelModalOpen, setIsChannelModalOpen] = useState(false);
+  const [selectedChannelType, setSelectedChannelType] = useState<'tv' | 'radio' | 'print' | 'mobile'>('tv');
   
   // Debug: Log image imports
   console.log('Image imports:', {
@@ -40,6 +47,33 @@ export function PlatformSelection() {
     xFactorImage,
     wwtbmImage
   });
+
+  const handlePlatformClick = (platformId: string) => {
+    let channelType: 'tv' | 'radio' | 'print' | 'mobile' = 'tv';
+    
+    switch (platformId) {
+      case 'tv':
+        channelType = 'tv';
+        break;
+      case 'radio':
+        channelType = 'radio';
+        break;
+      case 'print':
+        channelType = 'print';
+        break;
+      case 'social':
+        channelType = 'mobile';
+        break;
+    }
+    
+    setSelectedChannelType(channelType);
+    setIsChannelModalOpen(true);
+  };
+
+  const handleChannelSelect = () => {
+    setIsChannelModalOpen(false);
+    onOpenSignInModal?.();
+  };
   
   const channelTabs = {
     dtv: {
@@ -185,6 +219,7 @@ export function PlatformSelection() {
               <Card 
                 key={platform.id} 
                 className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 overflow-hidden"
+                onClick={() => handlePlatformClick(platform.id)}
               >
                 <div className="relative h-48 overflow-hidden">
                   
@@ -198,7 +233,7 @@ export function PlatformSelection() {
                     <IconComponent className="w-12 h-12 text-white" />
                   </div>
                   {/* Add TV image for TV platform */}
-                  {platform.id === "tv" && (
+                  {/* {platform.id === "tv" && (
                     <div className="absolute top-4 right-4 w-24 h-20 bg-yellow-400 border-4 border-red-500 rounded-lg p-2 shadow-2xl z-10">
                       {platform.tvIcon ? (
                         <img 
@@ -217,11 +252,11 @@ export function PlatformSelection() {
                         </div>
                       )}
                     </div>
-                  )}
+                  )} */}
                   {/* Add Radio image for Radio platform */}
                   {platform.id === "radio" && (
                     <div className="absolute top-4 right-4 w-24 h-16 bg-green-400 border-4 border-blue-500 rounded-lg p-2 shadow-2xl z-10">
-                      {platform.radioIcon ? (
+                      {/* {platform.radioIcon ? (
                         <img 
                           src={platform.radioIcon} 
                           alt="Radio Icon" 
@@ -236,13 +271,13 @@ export function PlatformSelection() {
                         <div className="w-full h-full bg-red-600 flex items-center justify-center text-white text-xs">
                           NO IMG
                         </div>
-                      )}
+                      )} */}
                     </div>
                   )}
                   {/* Add Print Media image for Print platform */}
                   {platform.id === "print" && (
                     <div className="absolute top-4 right-4 w-24 h-20 bg-purple-400 border-4 border-orange-500 rounded-lg p-2 shadow-2xl z-10">
-                      {platform.printingIcon ? (
+                      {/* {platform.printingIcon ? (
                         <img 
                           src={platform.printingIcon} 
                           alt="Print Icon" 
@@ -257,13 +292,13 @@ export function PlatformSelection() {
                         <div className="w-full h-full bg-red-600 flex items-center justify-center text-white text-xs">
                           NO IMG
                         </div>
-                      )}
+                      )} */}
                     </div>
                   )}
                   {/* Add Social Media image for Social platform */}
                   {platform.id === "social" && (
                     <div className="absolute top-4 right-4 w-24 h-16 bg-cyan-400 border-4 border-pink-500 rounded-lg p-2 shadow-2xl z-10">
-                      {platform.socialIcon ? (
+                      {/* {platform.socialIcon ? (
                         <img 
                           src={platform.socialIcon} 
                           alt="Social Media Icon" 
@@ -278,7 +313,7 @@ export function PlatformSelection() {
                         <div className="w-full h-full bg-red-600 flex items-center justify-center text-white text-xs">
                           NO IMG
                         </div>
-                      )}
+                      )} */}
                     </div>
                   )}
                 </div>
@@ -349,6 +384,14 @@ export function PlatformSelection() {
           </div>
         </div>
       </div>
+
+      {/* Channel Selection Modal */}
+      <ChannelSelectionModal
+        isOpen={isChannelModalOpen}
+        onClose={() => setIsChannelModalOpen(false)}
+        channelType={selectedChannelType}
+        onChannelSelect={handleChannelSelect}
+      />
     </section>
   );
 }
