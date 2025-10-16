@@ -53,7 +53,7 @@ export function ChannelSelectionModal({ isOpen, onClose, channelType, onChannelS
         title: 'اختر القناة',
         categories: [
           {
-            name: 'دي تي في',
+            name: 'تلفزيون دبي',
             channels: [
               { src: xFactorLogo, alt: 'إكس فاكتر' },
               { src: wwtbmLogo, alt: 'دبليو دبليو تي بي إم' },
@@ -62,7 +62,7 @@ export function ChannelSelectionModal({ isOpen, onClose, channelType, onChannelS
             ]
           },
           {
-            name: 'دي تي في رمضان',
+            name: ' تلفزيون دبي رمضان',
             channels: [
               { src: akherKalamLogo, alt: 'آخر كلام' },
               { src: duroobLogo, alt: 'دروب' },
