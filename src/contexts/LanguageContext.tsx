@@ -1688,7 +1688,7 @@ const translations = {
     'platforms.title': 'اختر منصتك',
     'platforms.subtitle': 'اختر منصة الإعلام التي تناسب أهداف حملتك الإعلانية. كل منصة تقدم مزايا فريدة للوصول إلى جمهورك المستهدف.',
     'platforms.tv.title': 'القنوات التلفزيوية',
-    'platforms.tv.description': 'وصل إلى الملايين من خلال أوقات الذروة والبرامج الشعبية',
+    'platforms.tv.description': 'وصول الملايين من خلال أوقات الذروة والبرامج الشعبية',
     'platforms.radio.title': 'اذاعات',
     'platforms.radio.description': 'تواصل مع المتنقلين والجماهير المحلية',
     'platforms.print.title': ' طباعة مسار',

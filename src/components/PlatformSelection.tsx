@@ -81,7 +81,7 @@ export function PlatformSelection({ onOpenChannelModal, onOpenSignInModal }: Pla
   
   const channelTabs = {
     dtv: {
-      name: 'دي تي في',
+      name: 'تلفزيون دبي',
       channels: [
         { 
           name: 'إكس فاكتر', 
@@ -91,7 +91,7 @@ export function PlatformSelection({ onOpenChannelModal, onOpenSignInModal }: Pla
           image: xFactorImage
         },
         { 
-          name: 'دبليو دبليو تي بي إم', 
+          name: 'من سيربح المليون', 
           description: 'جيم شو', 
           color: 'from-yellow-600 to-yellow-700', 
           shortName: 'WWTBM',
@@ -114,7 +114,7 @@ export function PlatformSelection({ onOpenChannelModal, onOpenSignInModal }: Pla
       ]
     },
     dtvramadan: {
-      name: 'دي تي في_رمضان',
+      name: 'تلفزيون دبي_رمضان',
       channels: [
         { 
           name: 'آخر كلام', 
