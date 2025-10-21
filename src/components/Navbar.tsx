@@ -21,7 +21,7 @@ interface NavbarProps {
 export function Navbar({ onGetStarted }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { t, isRTL, language, setLanguage } = useLanguage();
-  
+
   const navigation = getNavigation(t);
 
   const scrollToSection = (href: string) => {
@@ -42,7 +42,7 @@ export function Navbar({ onGetStarted }: NavbarProps) {
         <div className={`flex items-center justify-between h-16 ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={logoSvg} alt="Logo" style={{ height: '20px' }}/>
+            <img src={logoSvg} alt="Logo" style={{ height: '20px' }} />
           </div>
 
           {/* Desktop Navigation */}
@@ -62,13 +62,19 @@ export function Navbar({ onGetStarted }: NavbarProps) {
           {/* Desktop Login Button */}
           <div className={`hidden md:flex items-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <Button 
-              variant="ghost" 
+              onClick={() => window.open('https://admin-panel-ecru.vercel.app/', '_blank')} 
+              className="bg-white text-black hover:bg-gray-200"
+            >
+              لوحة التحكم
+            </Button>
+            <Button
+              variant="ghost"
               onClick={toggleLanguage}
               className="text-white hover:text-black hover:bg-white text-sm"
             >
               {language === 'ar' ? 'EN' : 'العربية'}
             </Button>
-           
+
             <Button onClick={onGetStarted} className="bg-white text-black hover:bg-gray-200">
               تسجيل الدخول
             </Button>
@@ -85,14 +91,14 @@ export function Navbar({ onGetStarted }: NavbarProps) {
                   <Tv className="w-6 h-6 text-primary" />
                   <span className="text-lg font-bold">{t('nav.adPlatform')}</span>
                 </div>
-                <button 
+                <button
                   onClick={() => setIsOpen(false)}
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground size-9"
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              
+
               <div className="space-y-6">
                 {navigation.map((item) => (
                   <button
@@ -108,10 +114,10 @@ export function Navbar({ onGetStarted }: NavbarProps) {
                     </div>
                   </button>
                 ))}
-                
+
                 <div className="pt-6 border-t border-border space-y-3">
-                  <Button 
-                    variant="ghost" 
+                  <Button
+                    variant="ghost"
                     onClick={toggleLanguage}
                     className="w-full"
                   >
